@@ -77,7 +77,7 @@ async function getMyTeams (req,res){
 
     res.status(200).json({
       success: true,
-      teams: teams.map(t => t.name),
+      teams
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
