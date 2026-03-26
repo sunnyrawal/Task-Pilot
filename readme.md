@@ -138,6 +138,6 @@ Notifications system
 
 🙌 Author
 
-Built with ❤️ by Shani
+Built with ❤️ by Sunny
 
 
