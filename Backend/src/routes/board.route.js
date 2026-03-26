@@ -4,7 +4,7 @@ const { createBoard, getBoardByTeam } = require('../controllers/board.controller
 
 const router =  express.Router()
 
-router.post('/create-board',protect,createBoard)
+router.post('/',protect,createBoard)
 router.get('/:teamId',protect,getBoardByTeam)
 
 module.exports = router

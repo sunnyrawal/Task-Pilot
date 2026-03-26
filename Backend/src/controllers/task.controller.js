@@ -96,11 +96,14 @@ async function assignTask(req, res) {
 
     await task.save();
 
+    // 🔥 populate assigned user
+    const populatedTask = await task.populate("assignedTo", "name email");
+
     res.status(200).json({
       success: true,
-      message: "Task assigned",
-      task,
+      task: populatedTask,
     });
+    
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -170,7 +173,7 @@ async function deleteTask(req, res) {
   }
 }
 
-async function updateTask(req,res){
+async function updateTask(req, res) {
   try {
     const { taskId } = req.params;
     const { title, description, dueDate } = req.body;
@@ -186,9 +189,7 @@ async function updateTask(req,res){
 
     // 🔐 check admin
     const isAdmin = team.members.some(
-      (m) =>
-        m.user.toString() === req.user.id &&
-        m.role === "admin"
+      (m) => m.user.toString() === req.user.id && m.role === "admin",
     );
 
     // 🔐 check creator
@@ -214,4 +215,11 @@ async function updateTask(req,res){
   }
 }
 
-module.exports = { createTask, getTaskByBoard, assignTask, updateTaskStatus ,deleteTask,updateTask };
+module.exports = {
+  createTask,
+  getTaskByBoard,
+  assignTask,
+  updateTaskStatus,
+  deleteTask,
+  updateTask,
+};

@@ -6,8 +6,8 @@ const { protect } = require('../middlewares/auth.middleware');
 
 const router =  express.Router()
 
-router.post('/create-team',protect,teamController.createTeam)
-router.post('/join-team',protect,teamController.joinTeam)
+router.post('/create',protect,teamController.createTeam)
+router.post('/join',protect,teamController.joinTeam)
 router.get('/',protect,teamController.getMyTeams)
 
 
