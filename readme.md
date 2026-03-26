@@ -1,4 +1,3 @@
-📄 README for Task Pilot
 # 🛩️ Task Pilot
 
 A full-featured Task Management Backend (Trello-like system) built using Node.js, Express, and MongoDB.
@@ -52,7 +51,7 @@ Task Pilot allows users to collaborate in teams, create boards, manage tasks, an
 
 ## 📂 Project Structure
 
-
+```bash
 src/
 │
 ├── controllers/
@@ -62,7 +61,7 @@ src/
 ├── db/
 └── app.js
 
-
+```
 ---
 
 ## 🔗 API Endpoints
